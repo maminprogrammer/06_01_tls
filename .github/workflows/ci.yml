@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -21,7 +21,7 @@ jobs:
           curl -s -k https://localhost:8443
           kill $!
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: binary
           path: ./dummy-server.bin
