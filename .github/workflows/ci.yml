@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
+      - name: Generate SSL-certificate
+        run: openssl req -nodes -new -x509 -keyout private.key -out cert.crt -subj "/C=RU/ST=Moscow/L=Moscow/O=Codeby/OU=School/CN=codeby.local"
       - name: Build Binary
         run: make
       - name: Simple Test
